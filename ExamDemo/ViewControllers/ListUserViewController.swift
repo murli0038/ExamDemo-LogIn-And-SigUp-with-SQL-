@@ -8,7 +8,30 @@
 
 import UIKit
 
-class ListUserViewController: UIViewController {
+class ListUserViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
+{
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return arr.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ListUserTableViewCell
+        cell.userName.text = arr[indexPath.row]["Name"]
+        cell.userEmailID.text = arr[indexPath.row]["Email"]
+        cell.userCity.text = arr[indexPath.row]["City"]
+        return cell
+        
+    }
+    
+    
+    var arr = [["Name":"Nikunj","Email":"n@gmail.com","City":"Mansa"],
+                   ["Name":"Yogesh","Email":"y@gmail.com","City":"America"],
+                   ["Name":"Priyaben","Email":"p@gmail.com","City":"Gandhinagar"],
+                   ["Name":"Tanvi","Email":"t@gmail.com","City":"Himmatnagar"]]
 
     override func viewDidLoad() {
         super.viewDidLoad()

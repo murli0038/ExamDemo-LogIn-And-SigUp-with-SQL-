@@ -8,7 +8,16 @@
 
 import UIKit
 
-class ListUserTableViewCell: UITableViewCell {
+class ListUserTableViewCell: UITableViewCell
+{
+    
+    
+    @IBOutlet weak var userName: UILabel!
+    
+    @IBOutlet weak var userEmailID: UILabel!
+    
+    @IBOutlet weak var userCity: UILabel!
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()
